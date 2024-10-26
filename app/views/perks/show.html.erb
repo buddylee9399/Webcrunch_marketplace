@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @perk %>
+
+<div>
+  <%= link_to "Edit this perk", edit_perk_path(@perk) %> |
+  <%= link_to "Back to perks", perks_path %>
+
+  <%= button_to "Destroy this perk", @perk, method: :delete %>
+</div>

@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id                      :integer          not null, primary key
+#  backings_count          :integer          default(0)
+#  current_donation_amount :integer          default(0)
+#  donation_goal           :decimal(, )
+#  expires_at              :datetime         default(Sat, 01 Mar 2025 22:59:39.000000000 UTC +00:00)
+#  status                  :string           default("active")
+#  title                   :string
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  user_id                 :integer          not null
+#
+# Indexes
+#
+#  index_projects_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
+#
+
+one:
+  title: MyString
+  donation_goal: 9.99
+  user: one
+  current_donation_amount: 1
+  expires_at: 2024-10-25 17:38:56
+  status: MyString
+  backings_count: 1
+
+two:
+  title: MyString
+  donation_goal: 9.99
+  user: two
+  current_donation_amount: 1
+  expires_at: 2024-10-25 17:38:56
+  status: MyString
+  backings_count: 1

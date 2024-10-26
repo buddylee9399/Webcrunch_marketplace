@@ -25,6 +25,47 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
     after_create :assign_default_role
+  has_many :projects, dependent: :destroy
+    def name
+      "#{first_name} #{last_name}"
+    end
+    def uid?
+      "uid#"
+    end
+    def admin?
+      true
+    end
+    def provider?
+      "prov#"
+    end
+    def access_code?
+      "access#"
+    end
+    def publishable_key?
+      "pubKey#"
+    end
+    def stripe_id
+      "str_id#"
+    end
+    def subscribed
+      true
+    end
+    def card_last4
+      "1234"
+    end
+    def card_exp_month
+      "08"
+    end
+    def card_exp_year
+      "2025"
+    end
+    def card_type    
+      "visa"
+    end
+  def can_receive_payments?
+    uid? &&  provider? && access_code? && publishable_key?
+  end
+    
     def assign_default_role
       if User.count == 1
         self.add_role(:site_admin) if self.roles.blank?
